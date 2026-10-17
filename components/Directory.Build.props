@@ -1,0 +1,12 @@
+<Project>
+
+  <Import Project="$(MSBuildThisFileDirectory)/../Directory.Build.props" />
+
+  <PropertyGroup>
+    <LsSrcPath>$(RootPath)/src</LsSrcPath>
+    <LsLibPath>$(RootPath)/lib</LsLibPath>
+
+    <OutputPath>$(BuildPath)/Components</OutputPath>
+  </PropertyGroup>
+
+</Project>

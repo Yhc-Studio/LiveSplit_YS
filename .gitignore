@@ -1,0 +1,27 @@
+# IDE options/cache
+.idea/*
+.vs/*
+.vscode/*
+.zed/*
+
+*.lscache
+
+# Build artifacts
+artifacts/
+bin/
+obj/
+publish/
+
+# User-specific files
+*.user
+
+# MSBuild
+*.binlog
+
+# LiveSplit
+GitInfo/
+
+**/x64/target/
+**/x86/target/
+
+LiveSplit.AutoSplitters.xml

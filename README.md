@@ -1,283 +1,218 @@
-﻿<h1> <img src="https://raw.githubusercontent.com/LiveSplit/LiveSplit/master/res/Icon.svg" alt="LiveSplit" height="42" align="top"/> LiveSplit</h1>
+<h1 align="center">
+  <img src="./res/Icon.svg" alt="LiveSplit YS" height="46" align="top"/>
+  LiveSplit YS
+</h1>
 
-[![GitHub release](https://img.shields.io/github/release/LiveSplit/LiveSplit.svg)](https://github.com/LiveSplit/LiveSplit/releases/latest)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/LiveSplit/LiveSplit/master/LICENSE)
-[![Build Status](https://github.com/LiveSplit/LiveSplit/workflows/CI/badge.svg)](https://github.com/LiveSplit/LiveSplit/actions)
-[![GitHub issues](https://img.shields.io/github/issues/LiveSplit/LiveSplit.svg?style=plastic)](https://github.com/LiveSplit/LiveSplit/issues)
-
-LiveSplit is a timer program for speedrunners that is both easy to use and full of features.
 <p align="center">
-  <img src="https://raw.githubusercontent.com/LiveSplit/LiveSplit.github.io/master/images/livesplittimer.png" alt="LiveSplit"/>
+  <strong>基于 LiveSplit 的中文化、体验优化与长期维护版本</strong>
 </p>
 
-## Features
+<p align="center">
+  <a href="./README.md">简体中文</a> ·
+  <a href="./README.en.md">English</a>
+</p>
 
-**Speedrun.com Integration:** [Speedrun.com](http://speedrun.com) is fully integrated into LiveSplit. You can browse their leaderboards, download splits, and even submit your own runs directly from LiveSplit. You can also show the World Records for the games you run with the World Record Component.
+<p align="center">
+  <a href="https://github.com/Yhc-Studio/LiveSplit_YS/releases/latest">
+    <img src="https://img.shields.io/github/v/release/Yhc-Studio/LiveSplit_YS?label=release" alt="Latest Release"/>
+  </a>
+  <a href="https://github.com/Yhc-Studio/LiveSplit_YS/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"/>
+  </a>
+  <a href="https://github.com/Yhc-Studio/LiveSplit_YS/issues">
+    <img src="https://img.shields.io/github/issues/Yhc-Studio/LiveSplit_YS.svg" alt="GitHub Issues"/>
+  </a>
+  <img src="https://img.shields.io/badge/upstream-LiveSplit%201.8.37--61--gf1b471f9-555" alt="Upstream Base"/>
+</p>
 
-**Accurate Timing:** LiveSplit automatically synchronizes with an atomic clock over the Internet to estimate inaccuracies of the local timer in the PC. LiveSplit's timer automatically adjusts the local timer to fix those inaccuracies.
+---
 
-**Game Time and Auto Splitting:** LiveSplit will automatically detect if Game Time and/or Auto Splitting is available for a game and let you activate it in the Splits Editor. Game Time is automatically read directly from an emulator or PC game, and you can use it by switching to Game Time under Compare Against.
+## 简介
 
-**Video Component:** With the Video Component, you can play a video from a local file alongside your run. The video will start when you start your run and stop whenever you reset. You can also specify at what point the video should start at.
+**LiveSplit YS** 是由 **Yhc_Studio** 维护的 LiveSplit 定制版本，面向希望继续使用经典 LiveSplit 工作流，同时需要更完整中文界面、更稳定的高 DPI 显示、更顺畅的启动体验以及独立更新通道的用户。
 
-**Racing:** In LiveSplit, you are able to start and join races on [SpeedRunsLive](http://www.speedrunslive.com/) or [racetime.gg](https://racetime.gg/) within LiveSplit itself. The timer automatically starts when the race begins and automatically writes ``.done`` whenever you complete the race. Also, you are able to compare your current run with the other runners during the race, as long as they use LiveSplit as well.
+本项目基于：
 
-**Comparisons:** In LiveSplit, you are able to dynamically switch between multiple comparisons, even mid-run. You can either compare your run to comparisons that you define yourself or compare it to multiple automatically generated comparisons, like your Sum of Best Segments or your average run. While racing on [SpeedRunsLive](http://www.speedrunslive.com/), comparisons for the other runners are automatically generated as well.
+- **LiveSplit 1.8.37-61-gf1b471f9**
+- Upstream revision: `f1b471f9`
+- 原项目：[`LiveSplit/LiveSplit`](https://github.com/LiveSplit/LiveSplit)
 
-**Layout System:** Users can modify every part of LiveSplit’s appearance using Layouts. Every user has the ability to add or remove parts along with being able to rearrange and customize each part of LiveSplit. You can even use your own background images.
+LiveSplit YS 保留 LiveSplit 的核心计时、布局、组件、Auto Splitter 与比赛相关能力，并在此基础上进行独立维护。
 
-**Dynamic Resizing:** LiveSplit can be resized to any size so that it looks good on stream. As LiveSplit’s size is changed, all of its parts are automatically scaled up in order to preserve its appearance.
+> LiveSplit YS 不是 LiveSplit 官方发行版。原 LiveSplit 项目及其贡献者与本项目保持独立。
 
-**Sharing Runs:** Any run can be shared to [Speedrun.com](http://speedrun.com/), [X (Twitter)](https://twitter.com/), and [Bluesky](https://bsky.app/). You can also share a screenshot of your splits to [Imgur](http://imgur.com/) or save it as a file. Your [Twitch](http://www.twitch.tv/) title can be updated as well based on the game you are playing.
+## LiveSplit YS 的主要改进
 
-**Component Development:** Anyone can develop their own components that can easily be shared and used with LiveSplit. Additional downloadable components can be found in the [Components Section](https://livesplit.org/components/).
+- **中文 / English 界面**：完善主界面、布局编辑器、组件名称与常用设置页本地化。
+- **经典布局风格**：组件设置页面以 LiveSplit 1.8.37 的紧凑布局为视觉基线，同时保留新版组件功能。
+- **高 DPI 修复**：改善 125% / 150% 等缩放下的计时数字间距、字体与布局表现。
+- **更快的启动与退出**：减少启动阶段不必要的组件扫描和网络阻塞，并完善后台任务清理。
+- **Auto Splitter 优化**：优先使用本地缓存，在线目录刷新放到后台执行，降低联网对启动的影响。
+- **ASL 异步初始化**：将较重的 ASL 解析 / 编译移出 UI 主线程，减少打开复杂布局时的卡顿。
+- **可选 speedrun.com 集成**：自动 speedrun.com 联网可以独立关闭，不影响本地计时和 Auto Splitter 使用。
+- **LiveSplit YS 独立更新通道**：使用 GitHub Releases 与 `latest.json` 作为 YS 自己的版本检查基础。
 
-## Contributing
+## v1.0.5 更新摘要
 
-We need your help!
+- 完善中文界面与组件名称本地化。
+- 按 LiveSplit 1.8.37 风格优化组件设置页布局。
+- 修复高 DPI 显示及计时文字间距问题。
+- 优化启动、退出、AutoSplitter 与 ASL 脚本加载性能。
+- 新增 LiveSplit YS 独立更新通道预览。
 
-You can browse the [Issues](https://github.com/LiveSplit/LiveSplit/issues) to find good issues to get started with. Select one that is not already done or in progress, assign yourself, and drag it over to "In Progress".
+## LiveSplit 核心功能
 
- 1. [Fork](https://github.com/LiveSplit/LiveSplit/fork) the project
- 2. Clone your forked repo: `git clone --recursive https://github.com/YourUsername/LiveSplit.git`
- 3. Create your feature/bugfix branch: `git checkout -b new-feature`
- 4. Commit your changes to your new branch: `git commit -am 'Add a new feature'`
- 5. Push to the branch: `git push origin new-feature`
- 6. Create a new Pull Request!
+LiveSplit YS 保留并继续兼容 LiveSplit 的主要能力：
 
-## Compiling
+- **精确计时**：适用于 Speedrun 的实时计时与游戏时间计时。
+- **Game Time / Auto Splitting**：支持游戏时间读取与自动分段脚本。
+- **多种比较方式**：支持 PB、Best Segments、Sum of Best 等比较方式。
+- **高度可定制的布局系统**：自由添加、删除、排序与配置组件，并支持背景图片。
+- **动态缩放**：窗口改变尺寸时，布局可以随之缩放。
+- **视频与音效组件**：可在计时过程中联动视频、音效等媒体组件。
+- **比赛功能**：继续兼容 LiveSplit 原有的比赛与计时工作流。
+- **分享与截图**：保留 LiveSplit 原有的成绩、分段截图与相关分享能力。
+- **组件系统**：继续支持 LiveSplit 的组件架构与第三方组件生态。
+- **LiveSplit Server**：支持 Named Pipe、TCP 与 WebSocket 控制接口。
 
-LiveSplit uses .NET Framework 4.8.1. To compile LiveSplit, you need the following components installed:
-- [.NET 10.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
-- [.NET Framework 4.8.1 Developer Pack](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net481-developer-pack-offline-installer)
+## 下载与安装
 
-After cloning, simply run `dotnet build LiveSplit.slnx` from the root of the repository.
+前往：
 
-To use Visual Studio, you must install a version that supports the .NET SDK version you installed. At the time of writing, the most recent version is [Visual Studio 2026](https://visualstudio.microsoft.com/vs/community).
+**[GitHub Releases](https://github.com/Yhc-Studio/LiveSplit_YS/releases/latest)**
 
-## Common Compiling Issues
-1. No submodules pulled in when you fork/clone the repo which causes the project not to build. There are two ways to remedy this:
- - Cloning for the first time: `git clone --recursive https://github.com/LiveSplit/LiveSplit.git`
- - If already cloned, execute this in the root directory: `git submodule update --init --recursive`
+下载最新的：
+
+```text
+LiveSplitYS-vX.Y.Z.zip
+```
+
+解压到任意可写目录后直接运行：
+
+```text
+LiveSplit.exe
+```
+
+建议在覆盖旧版本前备份自己的：
+
+- `.lss` 分段文件
+- `.lsl` 布局文件
+- 自定义组件 / Auto Splitter
+- 其他个人配置文件
+
+## 独立更新通道
+
+LiveSplit YS 不使用 LiveSplit 官方主程序更新通道。YS 的稳定版更新清单位于：
+
+```text
+https://github.com/Yhc-Studio/LiveSplit_YS/releases/latest/download/latest.json
+```
+
+稳定版 Release 可包含：
+
+```text
+LiveSplitYS-v1.0.5.zip
+latest.json
+LiveSplitYS-v1.0.5.sha256
+```
+
+`latest.json` 用于提供版本号、下载地址、SHA-256 与更新说明。
+
+> v1.0.5 中更新窗口仍以版本检查 / 界面预览为主；自动下载与安全替换流程将由后续版本继续完善。
+
+## 从源码编译
+
+LiveSplit YS 当前使用 **.NET Framework 4.8.1**，并通过现代 .NET SDK 构建。
+
+需要安装：
+
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
+- [.NET Framework 4.8.1 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net481)
+- 可选：与所安装 .NET SDK 兼容的 Visual Studio
+
+克隆仓库：
+
+```bash
+git clone https://github.com/Yhc-Studio/LiveSplit_YS.git
+cd LiveSplit_YS
+```
+
+构建 Release：
+
+```bash
+dotnet clean LiveSplit.slnx
+dotnet build LiveSplit.slnx -c Release
+```
+
+构建输出通常位于：
+
+```text
+artifacts/build/release/
+```
+
+LiveSplit YS 的独立仓库将所需组件源码直接纳入项目维护，因此正常克隆本仓库时不需要额外使用 `--recursive` 拉取组件子模块。
 
 ## Auto Splitters
 
-The documentation for how to develop, test, and submit an Auto Splitter can be found here:
+LiveSplit YS 继续兼容 LiveSplit 的 Auto Splitter / ASL 工作流。
 
-[Auto Splitters Documentation](https://github.com/LiveSplit/LiveSplit.AutoSplitters/blob/master/README.md)
+Auto Splitter 相关资料可参考 LiveSplit 上游文档：
 
-## The LiveSplit Server
+- [LiveSplit Auto Splitters](https://github.com/LiveSplit/LiveSplit.AutoSplitters)
+- [LiveSplit Scriptable Auto Split](https://github.com/LiveSplit/LiveSplit.ScriptableAutoSplit)
 
-The internal LiveSplit Server allows for other programs and other computers to control LiveSplit. The server can accept connections over either a named pipe located at `\\<hostname>\pipe\LiveSplit` (`.` is the hostname if the client and server are on the same computer), raw TCP/IP, or a WebSocket (WS) server, located at `ws://<hostname>:port/livesplit`.
+YS 对 Auto Splitter 的主要调整集中在启动性能、目录缓存和后台刷新，不改变现有 ASL 使用习惯。
 
-### Control
+## LiveSplit Server
 
-The named pipe is always open while LiveSplit is running but the TCP and WS servers **MUST** be started before programs can talk to them (Right click on LiveSplit -> Control -> Start TCP/WS Server). You **MUST** manually start the one you wish to use each time you launch LiveSplit. The TCP and WS servers cannot both run at the same time because the WS server runs on top of TCP/IP.
+LiveSplit 内置 Server 可让其他程序或其他计算机控制计时器。
 
-### Settings
+支持：
 
-#### Server Port
+- Named Pipe：`\\<hostname>\pipe\LiveSplit`
+- TCP/IP
+- WebSocket：`ws://<hostname>:port/livesplit`
+- 默认端口：`16834`
 
-**Server Port** is the door (one of thousands) on your computer that this program sends data through. Default is 16834. This should be fine for most people, but depending on network configurations, some ports may be blocked. See also https://en.wikipedia.org/wiki/Port_%28computer_networking%29.
+TCP / WebSocket Server 需要在 LiveSplit 中启动后才能使用。具体命令协议与兼容客户端仍遵循 LiveSplit 原有实现。
 
-#### Startup Behavior
+## 问题反馈与贡献
 
-**Startup Behavior** defines whether and which type of Server should be started automatically at the launch of LiveSplit.
+如果发现 LiveSplit YS 自身的问题，请在本仓库提交：
 
-### Known Uses
+- [Issues](https://github.com/Yhc-Studio/LiveSplit_YS/issues)
 
-- **Android LiveSplit Remote**: https://github.com/Ekelbatzen/LiveSplit.Remote.Android
-- **SplitNotes**: https://github.com/joelnir/SplitNotes
-- **Autosplitter Remote Client**: https://github.com/RavenX8/LiveSplit.Server.Client
+提交问题时建议附上：
 
-Made something cool? Consider getting it added to this list.
+- LiveSplit YS 版本
+- Windows 版本及 DPI 缩放比例
+- 使用的布局 / 组件
+- 是否启用 Auto Splitter
+- 可以复现问题的步骤
+- 必要时附截图或相关 `.lsl` / `.lss`
 
-### Commands
+对于来自 LiveSplit 上游的通用问题，也建议先确认问题是否能在官方 LiveSplit 中复现。
 
-Commands are case sensitive and end with a new line. You can provide parameters by using a space after the command and sending the parameters afterwards (`<command><space><parameters><newline>`).
+## 上游与致谢
 
-Some commands will respond with data and some will not. Every response ends with a newline character. Note that since the WS server has a concept of messages, commands and reponses sent over it do not end in newline characters.
+LiveSplit YS 建立在 **LiveSplit** 及其长期维护的组件生态之上。
 
-All times and deltas returned by the server are formatted according to [C#'s Constant Format Specifier](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-timespan-format-strings#the-constant-c-format-specifier). The server will accept times in the following format: `[-][[[d.]hh:]mm:]ss[.fffffff]`. The hours field can be greater than 23, even if days are present. Individual fields do not need to be padded with zeroes.
+- Upstream：[`LiveSplit/LiveSplit`](https://github.com/LiveSplit/LiveSplit)
+- LiveSplit 官网：<https://livesplit.org/>
+- LiveSplit YS 维护者：**Yhc_Studio**
+- LiveSplit YS 仓库：<https://github.com/Yhc-Studio/LiveSplit_YS>
 
-Any command that returns a time or a string can return a single hyphen `-` to indicate a "null" or invalid value.
-
-Commands that take a COMPARISON or a NAME take plain strings that may include spaces. Because it is used as a delimiter to mark the end of a command, newline characters may not appear anywhere within a command.
-
-Commands that take an INDEX take integers to choose elements from an array starting at 0 for the 1st element and n-1 for the last element where n equals the size of the array. Negative integers are also supported to choose an element at the end of an array. (-1 for the last element, -2 for 2nd last, and so forth)
-
-Commands that generate no response:
-
-- startorsplit
-- split
-- unsplit
-- skipsplit
-- pause
-- resume
-- undoallpauses
-- reset
-- starttimer
-- setgametime TIME
-- setloadingtimes TIME
-- addloadingtimes TIME
-- pausegametime
-- unpausegametime
-- alwayspausegametime
-- setcomparison COMPARISON
-- switchto realtime
-- switchto gametime
-- enableglobalhotkeys
-- disableglobalhotkeys
-- switchhotkeyprofile NAME
-- setsplitname INDEX NAME
-- setcurrentsplitname NAME
-- setcustomvariable JSON([NAME, VALUE])
-
-Commands that return a time:
-
-- getdelta
-- getdelta COMPARISON
-- getlastsplittime
-- getcomparisonsplittime
-- getcomparisonsplittime COMPARISON
-- getcurrentrealtime
-- getcurrentgametime
-- getcurrenttime
-- getfinaltime
-- getfinaltime COMPARISON
-- getpredictedtime COMPARISON
-- getbestpossibletime
-- getpausedrealtime
-- getpausedgametime
-- getoffset
-
-Commands that return an int:
-
-- getsplitindex  
-(returns -1 if the timer is not running)
-- getsplitcount
-- getattemptcount
-- getcompletedcount
-
-Commands that return True/False as a value or whether or not the request succeeds:
-
-- globalhotkeysenabled
-- autosplitteractivated
-- savelayout
-- savesplits
-- savelayoutas FILEPATH
-- savesplitsas FILEPATH
-- switchlayout FILEPATH
-- switchsplits FILEPATH
-- savesplitsscreenshot FILEPATH
-
-Commands that return a string:
-
-- getsplitname INDEX
-- getcurrentsplitname  
-- getprevioussplitname
-- getupcomingsplitname
-- getcurrenttimerphase
-- getgamename
-- getcategoryname
-- getcategoryvariables  
-(returns region, platform, emulator usage, and other category variables as a JSON encoded string)
-- getcomparisonname
-- gettimingmethod
-- getcustomvariablevalue NAME
-- getsplitsscreenshot  
-(returns a Base64 encoded string (Web URI format) of the screenshot in .png format)
-- getlayoutpath
-- getsplitspath
-- getautosplitterpath
-- gethotkeyprofile
-- getlivesplitversion
-- getlivesplitpath
-- getservertype
-- ping  
-(always returns `pong`)
-
-Commands are defined at `ProcessMessage` in "CommandServer.cs".
-
-### Example Clients
-
-#### Python
-
-```python
-import socket
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(("localhost", 16834))
-s.send(b"starttimer\n")
-```
-
-#### Java 7+
-
-```java
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.Socket;
-
-public class MainTest {
-    public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("localhost", 16834);
-        PrintWriter writer = new PrintWriter(socket.getOutputStream());
-        writer.println("starttimer");
-        writer.flush();
-        socket.close();
-    }
-}
-```
-
-#### Lua
-Software that implements [Lua](https://www.lua.org/) is usable for as a client. However, the lua io library must be available for the script to use, full documentation available [here](https://www.lua.org/manual/5.3/manual.html#6.8).
-
-```lua
-require "io"
-self.LSEndpoint = "\\\\.\\pipe\\LiveSplit" --Localhost LiveSplit pipe.
-self.LSPipe = io.open(self.LSEndpoint, "w") --Open/start the pipe. Flush is required after every command.
-self.LSPipe:write "starttimer\n"
-self.LSPipe:flush()
-self.LSPipe:close() --This can be left open as needed.
-```
-
-#### Node.js
-
-Node.js client implementation available here: https://github.com/satanch/node-livesplit-client
-
-## Releasing
-
-1. Update versions of any components that changed (create a Git tag and update the factory file for each component) to match the new LiveSplit version.
-2. Create a Git tag for the new version.
-3. Download `LiveSplit_Build` and `UpdateManagerExe` from the GitHub Actions build for the new Git tag.
-4. Create a GitHub release for the new version, and upload the LiveSplit build ZIP file with the correct filename (e.g. `LiveSplit_1.8.21.zip`).
-5. Modify files in [the update folder of LiveSplit.github.io](https://github.com/LiveSplit/LiveSplit.github.io/tree/master/update) and commit the changes:
-    - Copy changed files from the downloaded LiveSplit build ZIP file to the [update folder](https://github.com/LiveSplit/LiveSplit.github.io/tree/master/update).
-    - Copy changed files from the download Update Manager ZIP file to replace [`UpdateManagerV2.exe`](https://github.com/LiveSplit/LiveSplit.github.io/blob/master/update/UpdateManagerV2.exe) and [`UpdateManagerV2.exe.config`](https://github.com/LiveSplit/LiveSplit.github.io/blob/master/update/UpdateManagerV2.exe.config).
-    - Add new versions to the update XMLs for (`update.xml`, `update.updater.xml`, and the update XMLs for any components that changed).
-    - Modify the [DLL](https://github.com/therungg/LiveSplit.TheRun/blob/main/Components/LiveSplit.TheRun.dll) and [update XML](https://github.com/therungg/LiveSplit.TheRun/blob/main/update.LiveSplit.TheRun.xml) for LiveSplit.TheRun in its repo.
-    - Update the version on the [downloads page](https://github.com/LiveSplit/LiveSplit.github.io/blob/master/downloads.md).
+感谢 LiveSplit 原作者、维护者与所有贡献者。
 
 ## License
 
-The MIT License (MIT)
+本项目继续遵循 **MIT License**。
 
-Copyright (c) 2013 Christopher Serr and Sergey Papushin
+LiveSplit YS 包含基于 LiveSplit 的修改与整合内容。使用、分发和二次开发时，请同时保留适用的原项目版权、许可证与归属信息。详见仓库中的 [`LICENSE`](./LICENSE)。
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+---
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+<p align="center">
+  <strong>LiveSplit YS</strong><br/>
+  Maintained by Yhc_Studio
+</p>
